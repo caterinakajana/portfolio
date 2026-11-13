@@ -37,6 +37,24 @@ body {
     padding: 0 30px;
 }
 
+html {
+    scroll-behavior: smooth; /* Attiva lo scorrimento fluido per tutti i link interni */
+}
+
+/* Rimuove il colore blu e l'effetto hover indesiderato sul link di scorrimento */
+.scroll-down-btn {
+    color: var(--text-color); /* Prende il colore del testo normale (bianco o chiaro) */
+    text-decoration: none;    /* Toglie la sottolineatura */
+}
+
+/* Impedisce al link di cambiare colore o stile quando ci passi sopra o lo clicchi */
+.scroll-down-btn:hover,
+.scroll-down-btn:visited,
+.scroll-down-btn:active {
+    color: var(--text-color); /* Mantiene esattamente lo stesso colore di prima */
+    text-decoration: none;
+}
+
 /* 1. Prima Hero Section a scorrimento (Verde) */
 .hero-section {
     height: 100vh;
