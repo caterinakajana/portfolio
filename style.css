@@ -1,0 +1,696 @@
+/* Reset e impostazioni di base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #1b3022;        /* Verde scuro principale */
+    --text-color: #f7f9f6;      /* Testo chiaro */
+    --card-bg: #243d2c;         /* Verde leggermente più chiaro per le card */
+    --accent-color: #8fae97;    /* Verde salvia per dettagli */
+    
+    /* Variabili per la schermata bianca "Chi sono" */
+    --white-bg: #f7f9f6;
+    --white-text: #1b3022;
+    --white-muted: #4a5c50;
+    --white-accent: #2d4a37;
+
+    /* Definizione dei Font */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Libre Franklin', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* 1. Prima Hero Section a scorrimento (Verde) */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(247, 249, 246, 0.15);
+}
+
+.hero-content {
+    width: 100%;
+    text-align: center;               /* <- Centra tutto il testo all'interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;              /* <- Centra orizzontalmente i blocchi figli */
+    max-width: 800px;                 /* Evita che la riga sia troppo lunga e illeggibile */
+    margin: 0 auto;
+}
+
+/* Sottotitoli in maiuscolo stile CV */
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Titoli principali con Playfair Display */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.scroll-hint {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Sezione Ieri (e sempre) */
+.yesterday-section {
+    padding: 120px 0;
+    background-color: #2d4d38; /* Sfondo verde chiaro */
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(247, 249, 246, 0.15);
+}
+
+.yesterday-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 0.9fr 1.2fr; /* Lascia un po' più spazio al testo a destra */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Foto a sinistra più piccola e compatta della laurea */
+.yesterday-photo-side {
+    width: 100%;
+}
+
+.yesterday-photo {
+    width: 100%;
+    max-width: 380px; /* Limita la grandezza massima rispetto all'altra foto */
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(247, 249, 246, 0.15);
+    display: block;
+    margin: 0 auto; /* Centra la foto nel suo box a sinistra */
+}
+
+/* Testo a destra orientato a destra */
+.yesterday-text-side {
+    text-align: right; /* Orienta tutto il testo a destra */
+}
+
+.yesterday-text-side .subtitle-dark {
+    color: var(--accent-color); /* Riprende il verde salvia chiaro */
+}
+
+.yesterday-text-side h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.yesterday-text-side p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #cbd5cd;
+    margin-bottom: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* Responsive per smartphone */
+@media (max-width: 768px) {
+    .yesterday-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .yesterday-text-side {
+        text-align: left; /* Su mobile si legge meglio allineato a sinistra */
+    }
+    .yesterday-text-side h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* 2. Seconda Hero Section "Oggi" (Sfondo Bianco e Testi Verdi) */
+.hero-section-white {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--white-bg);
+    color: var(--white-text);
+    border-bottom: 1px solid #d5dad5;
+}
+
+.about-fullscreen-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.subtitle-dark {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--white-accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.about-text-side h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    color: var(--white-text);
+    font-weight: 400;
+}
+
+.about-text-side p {
+    color: var(--white-muted);
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+
+.social-links-dark {
+    margin-top: 30px;
+}
+
+.social-links-dark a {
+    color: var(--white-text);
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--white-accent);
+    padding-bottom: 2px;
+}
+
+.social-links-dark a:hover {
+    color: var(--white-muted);
+}
+
+.photo-placeholder-large {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background-color: #eaede7;
+    border: 2px dashed #b5c2bc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--white-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* 3. Sezione Parole Chiave (Pulita, senza box, ariosa) */
+.keywords-section {
+    padding: 120px 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgba(247, 249, 246, 0.15);
+}
+
+/* Creiamo un container più ampio solo per questa sezione, così non si stringono */
+.keywords-container {
+    max-width: 1100px; /* Più largo del resto della pagina per dare respiro */
+}
+
+.subtitle-center {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent-color);
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Griglia a 3 colonne ben distanziate ed equilibrate */
+.keywords-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px; /* Spazio generoso tra una colonna e l'altra */
+}
+
+/* Centriamo solo gli elementi che si trovano dentro alla sezione delle parole chiave */
+.keywords-section .keyword-item {
+    text-align: center;
+}
+
+.keywords-section .keyword-title {
+    text-align: center;
+}
+
+/* Parole chiave in Playfair Display */
+.keyword-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+/* Testo descrittivo compatto e bilanciato */
+.keyword-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #cbd5cd;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 260px;       /* <- Questo riduce la larghezza massima del blocco di testo */
+    margin: 0 auto;         /* <- Questo assicura che il testo ristretto resti perfettamente centrato nella sua colonna */
+    text-align: center;
+
+}
+
+
+/* Responsive per smartphone */
+@media (max-width: 768px) {
+    .keywords-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* 4. Sezione Campo di Esplorazione con Sfondo Bianco */
+.exploration-section-white {
+    padding: 120px 0;
+    background-color: var(--white-bg);
+    color: var(--white-text);
+    border-bottom: 1px solid #d5dad5;
+}
+
+.exploration-container {
+    max-width: 1000px;
+}
+
+.exploration-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 70px auto;
+}
+
+.subtitle-dark-center {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--white-accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.exploration-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--white-text);
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.exploration-intro-dark {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--white-muted);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* Griglia delle tre aree su sfondo bianco */
+.exploration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.exploration-card-white {
+    background-color: #ffffff; /* Bianco puro per le card */
+    border: 1px solid #d5dad5;
+    border-radius: 12px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exploration-card-white:hover {
+    transform: translateY(-4px);
+    border-color: var(--white-accent);
+    box-shadow: 0 10px 25px rgba(27, 48, 34, 0.05);
+}
+
+.area-number-dark {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white-accent);
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.exploration-card-white h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--white-text);
+    margin-bottom: 12px;
+}
+
+.exploration-card-white p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--white-muted);
+    line-height: 1.6;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Frase conclusiva finale (con specificità alta) */
+.exploration-section-white .exploration-conclusion {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--white-muted);
+    line-height: 1.7;
+    font-weight: 300;
+    text-align: center;
+    max-width: 750px;
+    margin: 60px auto 0 auto;
+    display: block;
+}
+
+/* Responsive per smartphone */
+@media (max-width: 768px) {
+    .exploration-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .exploration-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* 5. Sezione Lavori e Filtri */
+.main-content {
+    padding: 100px 0;
+}
+
+.section-title-area {
+    margin-bottom: 30px;
+}
+
+.section-title-area h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    color: #d1dad3;
+}
+
+/* Barra dei bottoni di filtro sulla stessa riga */
+.filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: var(--font-body);
+    background: transparent;
+    border: 1px solid rgba(247, 249, 246, 0.2);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Griglia dei lavori dinamica */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.work-item {
+    transition: all 0.3s ease;
+}
+
+.work-item.hide {
+    display: none;
+}
+
+.work-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(247, 249, 246, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(247, 249, 246, 0.4);
+}
+
+.work-card.featured-card {
+    grid-column: span 2;
+    flex-direction: row;
+}
+
+.work-preview {
+    width: 100%;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(247, 249, 246, 0.1);
+    font-weight: 500;
+}
+
+.work-card.featured-card .work-preview {
+    width: 45%;
+    height: auto;
+    border-bottom: none;
+    border-right: 1px solid rgba(247, 249, 246, 0.1);
+}
+
+.work-info {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Meta in stampatello maiuscolo */
+.work-info .meta {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.work-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.work-info p {
+    font-size: 0.95rem;
+    color: #cbd5cd;
+    margin-bottom: 20px;
+    flex: 1;
+    font-weight: 300;
+}
+
+.card-link {
+    font-size: 0.85srem;
+    font-weight: 500;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid rgba(247, 249, 246, 0.15);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive per smartphone */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .about-text-side h2, .section-title-area h2 {
+        font-size: 2rem;
+    }
+    .hero-section-white {
+        height: auto;
+        padding: 80px 0;
+    }
+    .about-fullscreen-grid, .portfolio-grid, .work-card.featured-card {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    .work-card.featured-card .work-preview {
+        width: 100%;
+        height: 160px;
+        border-right: none;
+        border-bottom: 1px solid rgba(247, 249, 246, 0.1);
+    }
+}
+/* Regola per adattare tutte le immagini ai loro box */
+img.real-photo, img.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Taglia l'immagine quanto basta per riempire il rettangolo senza distorcerla */
+    border-radius: 8px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applica l'effetto alle sezioni principali */
+.exploration-section-white,
+.yesterday-section,
+.works-section {
+    animation: fadeInUp 0.8s ease-out both;
+    animation-timeline: view(); /* Attiva l'animazione quando la sezione entra nello schermo */
+    animation-range: entry 0% cover 30%;
+}
+
+a, .exploration-card-white, .keyword-card, .work-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Curva di accelerazione super fluida */
+}
+
+.work-card img {
+    transition: transform 0.6s ease;
+}
+
+.work-card:hover img {
+    transform: scale(1.03); /* Zoom impercettibile ma di grandissimo impatto visivo */
+}
+
+/* --- DINAMISMO REALE E FLUIDITÀ AL MOUSE --- */
+
+/* 1. Rende fluido qualsiasi movimento (hover, zoom, spostamenti) */
+a, .exploration-card-white, .keyword-card, .work-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease;
+}
+
+/* 2. Sollevamento ed enfasi marcata quando passi sopra alle card dei lavori o di esplorazione */
+.work-card:hover, 
+.exploration-card-white:hover, 
+.keyword-card:hover {
+    transform: translateY(-6px); /* Si solleva visibilmente verso l'alto */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Crea un'ombra morbida che stacca il blocco */
+}
+
+/* 3. Zoom evidente sulle immagini quando il mouse va sopra alla card */
+.work-card:hover img, 
+.work-preview:hover img,
+.yesterday-photo:hover,
+.real-photo:hover {
+    transform: scale(1.04); /* Zoom più corposo e visibile */
+}
+
+/* Assicuriamoci che l'immagine stessa abbia la transizione fluida */
+.work-card img, 
+.work-preview img,
+.yesterday-photo
+.real-photo {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
